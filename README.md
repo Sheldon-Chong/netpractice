@@ -2,7 +2,9 @@
 
 By Sheldon Chong
 
-[Sheldon-Chong - Overview](https://github.com/Sheldon-Chong)
+View: [Networks](https://www.notion.so/Networks-d7b0104b35fd4e87bd55edee86235b7e?pvs=21) for the best reading experience 
+
+My github: https://github.com/Sheldon-Chong
 
 ---
 
@@ -81,9 +83,23 @@ The server responds with the HTML, CSS, JavaScript, images, and other resources 
 
 ![image.png](image%201.png)
 
-Webpages can be pretty small, or very large. Nevertheless, any data sent to another device first needs to be broken down into data packets, small units of data that have information about how to travel to its end destination.
+Webpages can be pretty small, or very large. Nevertheless, any data sent to another device first needs to be broken down into data packets, small units of data that have information about how to travel to its end destination. 
 
 ![image.png](image%202.png)
+
+This process of breaking-down data into packets is typically done in a process called TCP
+
+> 💡 **TCP (Transmission Control Protocol)**
+> 
+> 
+> A protocol that breaks data into data packets, and performs ordered, and error-checked delivery of data over a network
+> 
+> 1. TCP establishes a connection between the sender and receiver before data transmission (called a "three-way handshake")
+> 2. Ensures accurate data delivery by:
+>     - Error detection, re-transmitting lost or corrupted packets, and ensuring the receiver acknowledges each successfully received packet
+>     - Preventing a sender from overwhelming a receiver by controlling the rate of data transmission based on the receiver’s capacity, and adjusting data transition rate if congestion is detected.
+> - Commonly used in situations where data needs to be loaded correctly, like in **web-browsing** (HTTP/HTTPS), **sending files** (FTP) **or emails** (SMTP, IMAP, POP3), or connecting remotely (SSH)
+> - Less commonly used for **streaming**, **online gaming** of **voice calls**, where speed and low-latency are prioritized over guaranteed delivery, as packet loss significantly affect the overall experience
 
 For device A and Server 1 to be able to connect and communicate with each other, they have to be on the same network.
 
@@ -236,7 +252,7 @@ When a device (like a computer or router) wants to communicate with another devi
 The main reason data packets use by MAC addresses instead of IP’s to reach their destination is that it is more efficient and faster to do so.
 
 <aside>
-<img src="https://www.notion.so/icons/refresh_gray.svg" alt="https://www.notion.so/icons/refresh_gray.svg" width="40px" />
+↩️
 
 **Let’s summarize everything we’ve learnt so far:**
 
@@ -300,66 +316,62 @@ To solve this problem, IP addresses come with a component known as a subnet mask
 > </aside>
 > 
 
-<aside>
-✏️
-
-**Simple subnet mask calculation**
-
-How does a subnet mask help convey the network and host address of an IP address? Let’s take a look:
-
-1. Let’s say we have the IP `192.114.121.15` . We want to establish which portion of this address is the network and which portion is the host by specifying its subnet mask configuration. 
-2. Let’s use a mask of `255.255.255.0`:
-    
-    ```
-    IP   : 192.114.121.15
-    mask : 255.255.255.0
-    
-    IN BINARY:
-    IP   : 11000000.01110010.01111001.00001111
-    mask : 11111111.11111111.11111111.00000000
-    ```
-    
-3. the region of 1’s in the subnet mask indicate the network portion. The remaining 0s indicate the host number.
-    
-    ```
-    IP   : 11000000.01110010.01111001.00001111
-    mask : 11111111.11111111.11111111.00000000
-    			 							network part | host part
-    ```
-    
-
-1. To find the network address, the `AND` operation is performed on the IP address and mask. 
-    
-    ```
-      11000000.01110010.01111001.00001111
-    AND ---------------------------------
-      11111111.11111111.11111111.00000000
-    ```
-    
-
-1. The result from the operation is
-    
-    ```
-      11000000.01110010.01111001.00001111
-    AND ---------------------------------
-      11111111.11111111.11111111.00000000
-      ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓
-    = 11000000.01110010.01111001.00000000 (we are left with the network address)
-    ```
-    
-2. By getting the network portion, subsequently we also know the remaining bits of the IP address are for the host portion.
-    
-    ```c
-    host address    = 00000000.00000000.00000000.00001111
-    network address = 11000000.01110010.01111001.00000000
-    
-    host address    = 0.0.0.15
-    network address = 192.114.121.0
-    ```
-    
-    That’s it. That’s how you obtain the network and host portion of an IP address using a subnet. 
-    
-</aside>
+> ✏️ **Simple subnet mask calculation**
+> 
+> 
+> How does a subnet mask help convey the network and host address of an IP address? Let’s take a look:
+> 
+> 1. the region of 1’s in the subnet mask indicate the network portion. The remaining 0s indicate the host number.
+>     
+>     ```
+>     IP   : 11000000.01110010.01111001.00001111
+>     mask : 11111111.11111111.11111111.00000000
+>     			 							network part | host part
+>     ```
+>     
+> 2. Let’s use a mask of `255.255.255.0`:
+>     
+>     ```
+>     IP   : 192.114.121.15
+>     mask : 255.255.255.0
+>     
+>     IN BINARY:
+>     IP   : 11000000.01110010.01111001.00001111
+>     mask : 11111111.11111111.11111111.00000000
+>     ```
+>     
+> 3. Let’s say we have the IP `192.114.121.15` . We want to establish which portion of this address is the network and which portion is the host by specifying its subnet mask configuration. 
+> 4. To find the network address, the `AND` operation is performed on the IP address and mask. 
+>     
+>     ```
+>       11000000.01110010.01111001.00001111
+>     AND ---------------------------------
+>       11111111.11111111.11111111.00000000
+>     ```
+>     
+> 5. By getting the network portion, subsequently we also know the remaining bits of the IP address are for the host portion.
+>     
+>     ```c
+>     host address    = 00000000.00000000.00000000.00001111
+>     network address = 11000000.01110010.01111001.00000000
+>     
+>     host address    = 0.0.0.15
+>     network address = 192.114.121.0
+>     ```
+>     
+>     That’s it. That’s how you obtain the network and host portion of an IP address using a subnet. 
+>     
+> 6. The result from the operation is
+>     
+>     ```
+>       11000000.01110010.01111001.00001111
+>     AND ---------------------------------
+>       11111111.11111111.11111111.00000000
+>       ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓
+>     = 11000000.01110010.01111001.00000000 (we are left with the network address)
+>     ```
+>     
+> 
 
 With some understanding of host and network addresses, let’s observe the rules for networks and communications:
 
@@ -450,7 +462,7 @@ To better understand how to deal with unaligned subnet masks, let’s recontextu
 
 ![image.png](image%2022.png)
 
-If one host belongs to the 1st network’s range, all host in the same network must have a host address that 
+If one host belongs to the 1st network’s range, all host in the same network must have a host address that is within that network’s range
 
 ![image.png](image%2023.png)
 
@@ -471,7 +483,7 @@ With this mask, we have allocated 1 extra bit to the network portion, while shri
 
 ![image.png](image%2026.png)
 
-0-127 are the available hosts addresses of the FIRST network, and 128-255 are the available hosts of the ANOTHER network. 
+`0-127` are the available hosts addresses of the FIRST network, and `128-255` are the available hosts of the ANOTHER network. 
 
 Increase the bit by 1, and every range has been further subdivided.
 
@@ -485,7 +497,9 @@ Using the same IP addresses as before (`13.2.0.12` and `13.2.0.150`), with the m
 
 Which means the four devices we had earlier are now considered part of separate networks
 
-![image.png](image%2029.png)
+![FORGOT TO CHANGE THE SUBNET MASK](image%2029.png)
+
+FORGOT TO CHANGE THE SUBNET MASK
 
 By subnetting, we have created artificial boundaries within a single octet. If an host address exceeds or succeeds the current network range it is in, it will be deemed part of another network.  
 
@@ -610,7 +624,7 @@ For the two to communicate with each other, we need an intermediary, which is wh
 
 Many routers function as a Dynamic Host Configuration Protocol (DHCP), assigning IP addresses to devices within a network. Routers assign IP’s from Private IP Address ranges:
 
-> **Private IP addresses**
+> 💡 **Private IP addresses**
 > 
 > 
 > A private IP address is used within a private network. It is used for communication within a local area network (LAN).
@@ -629,48 +643,53 @@ But if broadcasts are local, how does Host A obtain the MAC address of host B wh
 
 **There are a few ways in which host A can obtain the MAC address of host B:**
 
-1. **Manually configure IP addresses (Static IP Addressing):** In some cases, Device A may already know Device B’s IP address because it was manually configured by an administrator, and won’t be automatically assigned or changed
-2. **DNS (Domain Name System)**: In most networks, **Device A** doesn’t need to know Device B’s IP directly but knows its **hostname** or **domain name** *(e.g., `deviceB.local` or `example.com`).* It finds the corresponding **IP address** for that hostname, using a process called DNS Resolution
-    - **DNS Resolution**
-        
-        <aside>
-        🌐
-        
-        DNS Resolution is the process of converting a website name (hostname) into an IP address so your device can connect to it. 
-        
-        - **DNS Query Initiation**: When a user types a domain name (like `example.com`) into their web browser, the device first checks its **DNS cache** to see if it has recently looked up the domain. If it's in the cache, the IP address is used immediately.
-        - If the IP address is not cached, the device sends a **DNS query** to its configured **DNS resolver**. This is usually the DNS server provided by the Internet Service Provider (ISP), but it could also be a public DNS service like Google's **8.8.8.8**.
-        - The DNS resolver begins the recursive query process by contacting a series of servers in search of the domain name
-        - The authoritative DNS server responds to the resolver with the IP address corresponding to the domain name (e.g., `203.0.113.5` for `www.example.com`).
-        - The resolver sends the IP address back to the client device, which can now use the IP address to establish a connection to the target server.
-        </aside>
-        
-3. **DHCP Communication**: If Device B has received its IP address through DHCP, the DHCP server often maintains a **list of active devices and their IP addresses.** Devices may be able to query the DHCP server for other devices' IP addresses, or an **admin interface** may provide this information.
+> 📜 **Obtaining the IP address of a device on another network**
+> 
+> 1. **Manually configure IP addresses (Static IP Addressing):** In some cases, Device A may already know Device B’s IP address because it was manually configured by an administrator, and won’t be automatically assigned or changed
+> 2. **DNS (Domain Name System)**: In most networks, **Device A** doesn’t need to know Device B’s IP directly but knows its **hostname** or **domain name** *(e.g., `deviceB.local` or `example.com`).* It finds the corresponding **IP address** for that hostname, using a process called DNS Resolution
+>     - **DNS Resolution**
+>         
+>         <aside>
+>         🌐
+>         
+>         DNS Resolution is the process of converting a website name (hostname) into an IP address so your device can connect to it. 
+>         
+>         - **DNS Query Initiation**: When a user types a domain name (like `example.com`) into their web browser, the device first checks its **DNS cache** to see if it has recently looked up the domain. If it's in the cache, the IP address is used immediately.
+>         - If the IP address is not cached, the device sends a **DNS query** to its configured **DNS resolver**. This is usually the DNS server provided by the Internet Service Provider (ISP), but it could also be a public DNS service like Google's **8.8.8.8**.
+>         - The DNS resolver begins the recursive query process by contacting a series of servers in search of the domain name
+>         - The authoritative DNS server responds to the resolver with the IP address corresponding to the domain name (e.g., `203.0.113.5` for `www.example.com`).
+>         - The resolver sends the IP address back to the client device, which can now use the IP address to establish a connection to the target server.
+>         </aside>
+>         
+> 3. **DHCP Communication**: If Device B has received its IP address through DHCP, the DHCP server often maintains a **list of active devices and their IP addresses.** Devices may be able to query the DHCP server for other devices' IP addresses, or an **admin interface** may provide this information.
 
 Navigating networks can become quite complex. Many networked devices come with routing tables, especially routers. These tables explicitly tell data packets how they should travel to their end destination
 
-- **Routing table**
-    
-    A set of instructions stored on a network device (E.g. a router) that guides data packets on how to travel to their destination. It provides the necessary information for the router to decide where to forward incoming packets based on their destination IP address.
-    
-    **Routing tables look something like this:** 
-    
-    ![image.png](image%2035.png)
-    
-    1. **Destination Network**: Contains the network or host that the data packet is intended for. The router checks the destination IP address of an incoming packet and compares it to this list of networks in the table to determine the best match. The network listed here is usually represented in CIDR notation (e.g., `192.168.1.0/24`).
-        1. If no specific match is found, the router may use a **default route** (typically `0.0.0.0/0`) for all other destinations.
-        2. *E.g. packet is headed for `192.168.1.0`. It arrives at this router. The router checks whether this address exists in the destination network column. If yes, it will utilize the instructions there such as specified subnet mask configuration, next hop, interface to send the packet*
-    2. **Next Hop**: The IP address of the **next router** or network device to which the packet should be forwarded. The router sends the packet to this "next hop," which is typically another router that’s a step-closer to the destination.
-    - **Interface**: The router’s local network interface (like `eth0`, `eth1`, etc.) through which the packet should be sent. It tells the router which physical or logical port to use.
-    - **Metric:** A value that represents the "cost" of the route, usually based on the number of hops, bandwidth, or other criteria. Lower metrics are preferred, meaning the route with the lowest cost will be chosen if there are multiple routes to the same destination.
-    
-    <aside>
-    💻
-    
-    use `route print` to display the routing table of your device
-    
-    </aside>
-    
+> 💡 **Routing table**
+> 
+> 
+> A set of instructions stored on a network device (E.g. a router) that guides data packets on how to travel to their destination. It provides the necessary information for the router to decide where to forward incoming packets based on their destination IP address.
+> 
+> - **Routing tables look something like this:**
+>     
+>     ![image.png](image%2035.png)
+>     
+> 1. **Destination Network**: Contains the network or host that the data packet is intended for. The router checks the destination IP address of an incoming packet and compares it to this list of networks in the table to determine the best match. The network listed here is usually represented in CIDR notation (e.g., `192.168.1.0/24`).
+>     1. If no specific match is found, the router may use a **default route** (typically `0.0.0.0/0`) for all other destinations.
+>         
+>         *E.g. packet is headed for `192.168.1.0`. It arrives at this router. The router checks whether this address exists in the destination network column. If yes, it will utilize the instructions there such as specified subnet mask configuration, next hop, interface to send the packet*
+>         
+> 2. **Next Hop**: The IP address of the **next router** or network device to which the packet should be forwarded. The router sends the packet to this "next hop," which is typically another router that’s a step-closer to the destination.
+> - **Interface**: The router’s local network interface (like `eth0`, `eth1`, etc.) through which the packet should be sent. It tells the router which physical or logical port to use.
+> - **Metric:** A value that represents the "cost" of the route, usually based on the number of hops, bandwidth, or other criteria. Lower metrics are preferred, meaning the route with the lowest cost will be chosen if there are multiple routes to the same destination.
+> 
+> <aside>
+> 💻
+> 
+> use `route print` to display the routing table of your device
+> 
+> </aside>
+> 
 
 We have talked about private IP addresses, and how they are assigned by the router. However, when a device wants to communicate with the internet, it needs to use a public IP addresses.
 
@@ -689,38 +708,39 @@ We have talked about private IP addresses, and how they are assigned by the rout
 > </aside>
 > 
 
-- 💡 **Connecting with the internet**
-    1. **Your Device**: Router assigns a private IP address (e.g., `192.168.1.100`) 
-    2. **Your Router**: Has a public IP (e.g., `203.0.113.5`) assigned by your ISP.
-    3. your router uses **Network Address Translation (NAT)** to translate the private IP to a public IP for external communication. The internet can simply send data packets to this public IP address, and they shall be directed to their respective devices.
-    4. **Internet**: Once the public IP is assigned, your device can communicate with websites and other internet services. Data sent from the internet to devices on a local network, and vice versa are facilitated by these routers, essentially acting as an intermediary.
-    
-    <aside>
-    💻
-    
-    CMD: Use `ping` to test connectivity with another device on the internet
-    
-    - `ping 8.8.8.8`
-    - `ping google.com`
-    - `ping nonexistent.non`
-    </aside>
-    
-    <aside>
-    💻
-    
-    CMD: Use `nslookup` to resolve domain names into IP addresses or vice versa
-    
-    - `nslookup google.com`
-    </aside>
-    
-    <aside>
-    💻
-    
-    CMD: use `tracert` to view that path packets take to reach their destination
-    
-    - `tracert google.com`
-    </aside>
-    
+> 📜 **Connecting with the internet**
+> 
+> 1. **Your Device**: Router assigns a private IP address (e.g., `192.168.1.100`) 
+> 2. **Your Router**: Has a public IP (e.g., `203.0.113.5`) assigned by your ISP.
+> 3. your router uses **Network Address Translation (NAT)** to translate the private IP to a public IP for external communication. The internet can simply send data packets to this public IP address, and they shall be directed to their respective devices.
+> 4. **Internet**: Once the public IP is assigned, your device can communicate with websites and other internet services. Data sent from the internet to devices on a local network, and vice versa are facilitated by these routers, essentially acting as an intermediary.
+> 
+> <aside>
+> 💻
+> 
+> CMD: Use `ping` to test connectivity with another device on the internet
+> 
+> - `ping 8.8.8.8`
+> - `ping google.com`
+> - `ping nonexistent.non`
+> </aside>
+> 
+> <aside>
+> 💻
+> 
+> CMD: Use `nslookup` to resolve domain names into IP addresses or vice versa
+> 
+> - `nslookup google.com`
+> </aside>
+> 
+> <aside>
+> 💻
+> 
+> CMD: use `tracert` to view that path packets take to reach their destination
+> 
+> - `tracert google.com`
+> </aside>
+> 
 
 > ↩️ **Summary**
 > 
