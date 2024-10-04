@@ -8,40 +8,38 @@ My github: https://github.com/Sheldon-Chong
 
 ---
 
-- If you’re a student at 42, read this first!:
+- **If you’re a student at 42, read this first!:**
     
     It will cover all necessary topics and theories and calculation methods to solve netpractice, but also contains several other topics necessary for understanding the full picture for networking.
     
     The distinction is below
     
-    <aside>
-    💡
-    
-    **Topics covered**
-    
-    Part of netpractice:
-    
-    1. IP addresses
-    2. subnet masks
-    3. reserved IP addresses
-    4. Interfaces
-    5. Routers
-    6. Switches
-    7. Routing table
-    8. CIDR
-    9. Overlapping IP’s
-    
-    Outside netpractice:
-    
-    1. private and public IPs
-    2. DHCP
-    3. DNS
-    4. ARP requests and MAC addresses
-    </aside>
-    
+    > ❓ **Topics covered**
+    > 
+    > 
+    > **Part of netpractice:**
+    > 
+    > 1. ARP requests and MAC addresses
+    > 2. DNS
+    > 3. DHCP
+    > 4. private and public IPs
+    > 
+    > **Outside netpractice:**
+    > 
+    > 1. Overlapping IP’s
+    > 2. CIDR
+    > 3. Routing table
+    > 4. Switches
+    > 5. Routers
+    > 6. Interfaces
+    > 7. reserved IP addresses
+    > 8. subnet masks
+    > 9. IP addresses
+<blockquote>
 
-> This guide aims to give a comprehensive understanding of networking, and paint the full picture of how various networking systems link together to facilitate communication.
-> 
+This guide aims to give a comprehensive understanding of networking, and paint the full picture of how various networking systems link together to facilitate communication.
+
+</blockquote>
 
 
 <details>
@@ -86,17 +84,16 @@ Webpages can be pretty small, or very large. Nevertheless, any data sent to anot
 
 This process of breaking-down data into packets is typically done in a process called TCP
 
-> **💡 TCP (Transmission Control Protocol)**
-> 
-> 
-> A protocol that breaks data into data packets, and performs ordered, and error-checked delivery of data over a network
-> 
-> 1. TCP establishes a connection between the sender and receiver before data transmission (called a "three-way handshake")
-> 2. Ensures accurate data delivery by:
->     - Error detection, re-transmitting lost or corrupted packets, and ensuring the receiver acknowledges each successfully received packet
->     - Preventing a sender from overwhelming a receiver by controlling the rate of data transmission based on the receiver’s capacity, and adjusting data transition rate if congestion is detected.
-> - Commonly used in situations where data needs to be loaded correctly, like in **web-browsing** (HTTP/HTTPS), **sending files** (FTP) **or emails** (SMTP, IMAP, POP3), or connecting remotely (SSH)
-> - Less commonly used for **streaming**, **online gaming** of **voice calls**, where speed and low-latency are prioritized over guaranteed delivery, as packet loss significantly affect the overall experience
+- **💡 TCP (Transmission Control Protocol)**
+    
+    > A protocol that breaks data into data packets, and performs ordered, and error-checked delivery of data over a network
+    > 
+    1. TCP establishes a connection between the sender and receiver before data transmission (called a "three-way handshake")
+    2. Ensures accurate data delivery by:
+        - Error detection, re-transmitting lost or corrupted packets, and ensuring the receiver acknowledges each successfully received packet
+        - Preventing a sender from overwhelming a receiver by controlling the rate of data transmission based on the receiver’s capacity, and adjusting data transition rate if congestion is detected.
+    - Commonly used in situations where data needs to be loaded correctly, like in **web-browsing** (HTTP/HTTPS), **sending files** (FTP) **or emails** (SMTP, IMAP, POP3), or connecting remotely (SSH)
+    - Less commonly used for **streaming**, **online gaming** of **voice calls**, where speed and low-latency are prioritized over guaranteed delivery, as packet loss significantly affect the overall experience
 
 For device A and Server 1 to be able to connect and communicate with each other, they have to be on the same network.
 
@@ -104,9 +101,11 @@ For device A and Server 1 to be able to connect and communicate with each other,
 <details>
 <summary><b>💡 networks:</b></summary>
 
+<blockquote>
 
-Refers to group of two or more devices *(e.g. computers, smartphones, servers etc)* that are connected together to share resources and communicate with each other. 
+Refers to group of two or more devices *(e.g. computers, smartphones, servers etc)* that are connected together to share resources and communicate with each other.
 
+</blockquote>
 - Devices on the same network share the same system of rules, known as **communications protocols**, to transmit information physically or wirelessly.
 - Each device on the network is known as a **host**
     
@@ -128,9 +127,11 @@ Several devices exists to handle this issue. One such device is the switch
 <details>
 <summary><b>💡 switch</b></summary>
 
+<blockquote>
 
 A switch is a physical device that connects networked devices that are part of the same network. Each device is connected to the switch via an Ethernet cable or wirelessly.
 
+</blockquote>
 - With such an approach, all devices will only need to send resources to the switch, rather than coordinating data transfer between each device.
     
     <img src="images\image%205.png" alt="All devices you see here are part of the same network"></img>
@@ -147,9 +148,11 @@ With many device present In a network, each device needs to have some way of ide
 <details>
 <summary><b>💡 IP address</b></summary>
 
+<blockquote>
 
-A unique numerical label assigned to each device connected to a network.  
+A unique numerical label assigned to each device connected to a network.
 
+</blockquote>
 - The two major types of IP addresses that exist today are
     - IPv4 (Internet Protocol version 4)
     - IPv6 (Internet Protocol version 6)
@@ -187,9 +190,11 @@ We’ve learned that data packets are sent from one host, and received by anothe
 <details>
 <summary><b>💡 interface</b></summary>
 
+<blockquote>
 
-a point of connection where a device interacts with a network, which allows devices to send and receive data. 
+a point of connection where a device interacts with a network, which allows devices to send and receive data.
 
+</blockquote>
 - Interfaces serve serves as the entry and exit point for data packets on a device.
     
     <img src="images\image%207.png" alt="image.png"></img>
@@ -226,9 +231,11 @@ However, it is slightly more complicated than that. For a data packet to be sent
 <details>
 <summary><b>💡 Mac address</b></summary>
 
+<blockquote>
 
 A 48-bit hexadecimal number, often displayed as six groups of two hexadecimal digits separated by colons or hyphens (e.g., `00:1A:2B:3C:4D:5E`).
 
+</blockquote>
 - A mac address, just like an IP is an address that helps to identify devices in a LOCAL network
 
 <aside>
@@ -251,9 +258,11 @@ When a device (like a computer or router) wants to communicate with another devi
 <details>
 <summary><b>💡 ARP request</b></summary>
 
+<blockquote>
 
 A broadcast to all devices on a network to search and retrieve the MAC address associated with a given IP address
 
+</blockquote>
 1. The ARP request packet contains the IP address of the destination device and asks, "Who has this IP address? Please send me your MAC address.”
     
     <img src="images\image%209.png" alt="image.png"></img>
@@ -272,10 +281,9 @@ A broadcast to all devices on a network to search and retrieve the MAC address a
 
 The main reason data packets use by MAC addresses instead of IP’s to reach their destination is that it is more efficient and faster to do so.
 
-<aside>
-↩️
 
-**Let’s summarize everything we’ve learnt so far:**
+<details>
+<summary><b>🔄 Summary of everything we’ve learnt so far:</b></summary>
 
 1. Two or more devices that are connected to each other are considered part of the same network. 
 2. For more connecting more than two devices in the same network, a switch comes in handy 
@@ -283,7 +291,8 @@ The main reason data packets use by MAC addresses instead of IP’s to reach the
 4. Data packets are sent from and received by interfaces, one or more of which can be found on a device
 5. Data packets use a MAC address to know which destination interface it should be sent to
 6. To get the MAC address of the destination interface, the current device or switch will send an ARP request to all devices on the network, and receives the MAC address of the matching IP.
-</aside>
+
+</details>
 
 So far, we’ve learned about devices communicating within the same network. 
 
@@ -319,9 +328,11 @@ To solve this problem, IP addresses come with a component known as a subnet mask
 <details>
 <summary><b>💡 Subnet mask</b></summary>
 
+<blockquote>
 
 A 32-bit address that is applied to an IP address to distinguish between the host and network portion of the address. It is in the same structure as an IP address, consisting of 4 octets delimited by dots.
 
+</blockquote>
 - All IP’s and interfaces come with a subnet mask
     
     <img src="images\image%2015.png" alt="image.png"></img>
@@ -330,73 +341,74 @@ A 32-bit address that is applied to an IP address to distinguish between the hos
     
     A setup with IP addresses and their respective masks
     
+<blockquote>
 
-<aside>
-💻
+💻 On CMD
 
-use `arp -a` to view the ARP cache stored in your current device
-
-</aside>
-
+- use `arp -a` to view the ARP cache stored in your current device
+</blockquote>
 
 </details>
 
-> ✏️ **Simple subnet mask calculation**
-> 
-> 
-> How does a subnet mask help convey the network and host address of an IP address? Let’s take a look:
-> 
-> 1. the region of 1’s in the subnet mask indicate the network portion. The remaining 0s indicate the host number.
->     
->     ```
->     IP   : 11000000.01110010.01111001.00001111
->     mask : 11111111.11111111.11111111.00000000
->     			 							network part | host part
->     ```
->     
-> 2. Let’s use a mask of `255.255.255.0`:
->     
->     ```
->     IP   : 192.114.121.15
->     mask : 255.255.255.0
->     
->     IN BINARY:
->     IP   : 11000000.01110010.01111001.00001111
->     mask : 11111111.11111111.11111111.00000000
->     ```
->     
-> 3. Let’s say we have the IP `192.114.121.15` . We want to establish which portion of this address is the network and which portion is the host by specifying its subnet mask configuration. 
-> 4. To find the network address, the `AND` operation is performed on the IP address and mask. 
->     
->     ```
->       11000000.01110010.01111001.00001111
->     AND ---------------------------------
->       11111111.11111111.11111111.00000000
->     ```
->     
-> 5. By getting the network portion, subsequently we also know the remaining bits of the IP address are for the host portion.
->     
->     ```c
->     host address    = 00000000.00000000.00000000.00001111
->     network address = 11000000.01110010.01111001.00000000
->     
->     host address    = 0.0.0.15
->     network address = 192.114.121.0
->     ```
->     
->     That’s it. That’s how you obtain the network and host portion of an IP address using a subnet. 
->     
-> 6. The result from the operation is
->     
->     ```
->       11000000.01110010.01111001.00001111
->     AND ---------------------------------
->       11111111.11111111.11111111.00000000
->       ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓
->     = 11000000.01110010.01111001.00000000 (we are left with the network address)
->     ```
->     
-> 
+<details>
+<summary><b>✏ *Simple subnet mask calculation</b></summary>
+
+
+How does a subnet mask help convey the network and host address of an IP address? Let’s take a look:
+
+1. the region of 1’s in the subnet mask indicate the network portion. The remaining 0s indicate the host number.
+    
+    ```
+    IP   : 11000000.01110010.01111001.00001111
+    mask : 11111111.11111111.11111111.00000000
+                                            network part | host part
+    ```
+    
+2. Let’s use a mask of `255.255.255.0`:
+    
+    ```
+    IP   : 192.114.121.15
+    mask : 255.255.255.0
+    
+    IN BINARY:
+    IP   : 11000000.01110010.01111001.00001111
+    mask : 11111111.11111111.11111111.00000000
+    ```
+    
+3. Let’s say we have the IP `192.114.121.15` . We want to establish which portion of this address is the network and which portion is the host by specifying its subnet mask configuration. 
+4. To find the network address, the `AND` operation is performed on the IP address and mask. 
+    
+    ```
+      11000000.01110010.01111001.00001111
+    AND ---------------------------------
+      11111111.11111111.11111111.00000000
+    ```
+    
+5. By getting the network portion, subsequently we also know the remaining bits of the IP address are for the host portion.
+    
+    ```c
+    host address    = 00000000.00000000.00000000.00001111
+    network address = 11000000.01110010.01111001.00000000
+    
+    host address    = 0.0.0.15
+    network address = 192.114.121.0
+    ```
+    
+    That’s it. That’s how you obtain the network and host portion of an IP address using a subnet. 
+    
+6. The result from the operation is
+    
+    ```
+      11000000.01110010.01111001.00001111
+    AND ---------------------------------
+      11111111.11111111.11111111.00000000
+      ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓ ↓↓↓↓↓↓↓↓
+    = 11000000.01110010.01111001.00000000 (we are left with the network address)
+    ```
+    
+
+
+</details>
 
 With some understanding of host and network addresses, let’s observe the rules for networks and communications:
 
@@ -411,27 +423,29 @@ With some understanding of host and network addresses, let’s observe the rules
     
     The first 3 octets of Host A differ from Host B, hence they are considered on “separate networks”. These devices require another intermediary (such as a router) to communicate with each other
     
+<blockquote>
 
-> **Understanding host address**
-> 
-> 
-> 
-> <img src="images\image%2019.png" alt="image.png"></img>
-> 
-> Both devices are part of the same network, with a unique host address. This configuration is valid
-> 
-> <img src="images\image%2020.png" alt="image.png"></img>
-> 
-> Both devices are part of the same network, but share the same address. This configuration will cause an error
-> 
-> Take note!:
-> 
-> <img src="images\image%2021.png" alt="image.png"></img>
-> 
-> Despite 0 and 255 being the extent of the host address, hosts can have only have an address between `1-254`. 
-> 
-> - `0` is reserved for the network address. This number represents the entire network rather than any specific device on the network.
-> - `255` is reserved for the broadcast address within the network.
+**Understanding host address**
+
+
+
+<img src="images\image%2019.png" alt="image.png"></img>
+
+Both devices are part of the same network, with a unique host address. This configuration is valid
+
+<img src="images\image%2020.png" alt="image.png"></img>
+
+Both devices are part of the same network, but share the same address. This configuration will cause an error
+
+Take note!:
+
+<img src="images\image%2021.png" alt="image.png"></img>
+
+Despite 0 and 255 being the extent of the host address, hosts can have only have an address between `1-254`. 
+
+- `0` is reserved for the network address. This number represents the entire network rather than any specific device on the network.
+- `255` is reserved for the broadcast address within the network.
+</blockquote>
 
 So far, we have discussed the usage of the subnet mask `255.255.255.0`, which is a configuration that specifies that the first 3 octets should be the network portion, and the last octet be the host portion. 
 
@@ -459,15 +473,10 @@ Summary
 
 | Decimal | Binary | Available Network addresses | Available host addresses per network |
 | --- | --- | --- | --- |
-| `255.255.255.0` | `00000000.00000000.00000000.11111111`  | 16,777,216 addresses
-range: `0.0.0`  -  `255.255.255` | 256 addresses
-range: `0` - `255` |
-| `255.255.0.0` | `00000000.00000000.11111111.11111111` | 65,536 addresses
-range:`0.0`  -  `255.255` | 65,536 addresses
-range:`0.0`  -  `255.255` |
-| `255.0.0.0` | `00000000.11111111.11111111.11111111`  | 256 addresses
-range: `0` - `255` | 16,777,216 addresses
-range:`0.0.0` - `255.255.255` |
+| `255.255.255.0` | `00000000.00000000.00000000.11111111`  | 16,777,216 addresses<br>range: `0.0.0`  -  `255.255.255` | 256 addresses<br>range: `0` - `255` |
+| `255.255.0.0` | `00000000.00000000.11111111.11111111` | 65,536 addresses<br>range:`0.0`  -  `255.255` | 65,536 addresses<br>range:`0.0`  -  `255.255` |
+| `255.0.0.0` | `00000000.11111111.11111111.11111111`  | 256 addresses<br>range: `0` - `255` | 16,777,216 addresses<br>range:`0.0.0` - `255.255.255` |
+
 
 These are the 3 basic subnet mask configurations. Depending on how many networks you need, or devices you need per network, you can pick and choose from these masks.
 
@@ -521,9 +530,7 @@ Using the same IP addresses as before (`13.2.0.12` and `13.2.0.150`), with the m
 
 Which means the four devices we had earlier are now considered part of separate networks
 
-<img src="images\image%2029.png" alt="FORGOT TO CHANGE THE SUBNET MASK"></img>
-
-FORGOT TO CHANGE THE SUBNET MASK
+<img src="images\image%2029.png" alt="image.png"></img>
 
 By subnetting, we have created artificial boundaries within a single octet. If an host address exceeds or succeeds the current network range it is in, it will be deemed part of another network.  
 
@@ -558,9 +565,11 @@ By the way, the notation `/24`, `/25`, `/26` etc indicates how many bits in the 
 <details>
 <summary><b>💡 CIDR (Classless Inter-Domain Routing)</b></summary>
 
+<blockquote>
 
 A method for allocating IP addresses. CIDR allows variable-length subnet masking (VLSM), meaning you can allocate IP addresses based on need, rather than being restricted to fixed blocks like Class A, B, or C.
 
+</blockquote>
 - Facilitates efficient and flexible division and use of IP address space
 - CIDR Notation: The format used in CIDR is
     - *E.g. we have a CIDR notation of:* `192.168.0.0/24`
@@ -577,8 +586,7 @@ Use the cheat sheet below to get a quick reference of CIDR numbers and the respe
 - **Cheat Sheet**
     
     
-    | Subnet Mask | CIDR | Binary Notation 
-    `nework` | `Host`   | Available Addresses |
+    | Subnet Mask | CIDR | Binary Notation  | Available Addresses |
     | --- | --- | --- | --- |
     | `255.255.255.255` | /32 | `11111111.11111111.11111111.11111111` | 1 |
     | `255.255.255.254` | /31 | `11111111.11111111.11111111.11111110` | 2 |
@@ -606,17 +614,18 @@ Use the cheat sheet below to get a quick reference of CIDR numbers and the respe
     | `255.128.0.0` | /9 | `11111111.10000000.00000000.00000000` | 8388608 |
     | `255.0.0.0` | /8 | `11111111.00000000.00000000.00000000` | 16777216 |
 
-<aside>
-<img src="https://www.notion.so/icons/refresh_gray.svg" alt="https://www.notion.so/icons/refresh_gray.svg" width="40px" />
 
-Recap
 
-1. Separating large networks into smaller ones help with traffic and efficiency of communication
-2. Allowing devices to communicate with each other from separate networks first requires that data packets are able to distinguish between networks and host, which is where subnet masks come in
+<details>
+<summary><b>🔄 Recap</b></summary>
+
+1. Classes and CIDR are ways in which we specify the configurations of subnet masks.
+2. When we increase the bits of the mask, the number of network addresses are doubled, while the host addresses available per network are halved.
 3. Subnet masks serve as a way to highlight the network and host number of a device. 
-4. When we increase the bits of the mask, the number of network addresses are doubled, while the host addresses available per network are halved.
-5. Classes and CIDR are ways in which we specify the configurations of subnet masks.
-</aside>
+4. Allowing devices to communicate with each other from separate networks first requires that data packets are able to distinguish between networks and host, which is where subnet masks come in
+5. Separating large networks into smaller ones help with traffic and efficiency of communication
+
+</details>
 
 ---
 
@@ -634,9 +643,11 @@ For the two to communicate with each other, we need an intermediary, which is wh
 <details>
 <summary><b>💡 Router</b></summary>
 
+<blockquote>
 
 A physical device that connects devices from different networks together, allowing them to communicate with each other.
 
+</blockquote>
 - The diagram below showcases a router connecting Host A and Host B together, essentially functioning as a bridge between the two devices:
     
     <img src="images\image%2032.png" alt="image.png"></img>
@@ -656,16 +667,24 @@ A physical device that connects devices from different networks together, allowi
 
 Many routers function as a Dynamic Host Configuration Protocol (DHCP), assigning IP addresses to devices within a network. Routers assign IP’s from Private IP Address ranges:
 
-> 💡 **Private IP addresses**
-> 
-> 
-> A private IP address is used within a private network. It is used for communication within a local area network (LAN).
-> 
-> | **Class** | **IP Address Range** | **Default Subnet Mask** | **Network Bits** | **Host Bits** | **Number of Networks** | **Hosts per Network** |
-> | --- | --- | --- | --- | --- | --- | --- |
-> | **A** | `0.0.0.0` to `127.255.255.255` | `255.0.0.0` (or `/8`) | 8 | 24 | 128 (from `0` to `127`) | 16,777,214 (2^24 - 2) |
-> | **B** | `128.0.0.0` to `191.255.255.255` | `255.255.0.0` (or `/16`) | 16 | 16 | 16,384 (from `128.0` to `191.255`) | 65,534 (2^16 - 2) |
-> | **C** | `192.0.0.0` to `223.255.255.255` | `255.255.255.0` (or `/24`) | 24 | 8 | 2,097,152 (from `192.0.0` to `223.255.255`) | 254 (2^8 - 2) |
+
+<details>
+<summary><b>💡 Private IP addresses</b></summary>
+
+<blockquote>
+
+A private IP address is used within a private network. It is used for communication within a local area network (LAN).
+
+</blockquote>
+
+| **Class** | **IP Address Range** | **Default Subnet Mask** | **Network Bits** | **Host Bits** | **Number of Networks** | **Hosts per Network** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **A** | `0.0.0.0` to `127.255.255.255` | `255.0.0.0` (or `/8`) | 8 | 24 | 128 (from `0` to `127`) | 16,777,214 (2^24 - 2) |
+| **B** | `128.0.0.0` to `191.255.255.255` | `255.255.0.0` (or `/16`) | 16 | 16 | 16,384 (from `128.0` to `191.255`) | 65,534 (2^16 - 2) |
+| **C** | `192.0.0.0` to `223.255.255.255` | `255.255.255.0` (or `/24`) | 24 | 8 | 2,097,152 (from `192.0.0` to `223.255.255`) | 254 (2^8 - 2) |
+
+
+</details>
 
 An important thing to note, ARP requests don’t get past the router. This design may appear to be a flaw, but it is beneficial to ensure that broadcast are contained within their own network and don’t spill over, reducing traffic congestion.
 
@@ -705,9 +724,11 @@ Navigating networks can become quite complex. Many networked devices come with r
 <details>
 <summary><b>💡 Routing table</b></summary>
 
+<blockquote>
 
 A set of instructions stored on a network device (E.g. a router) that guides data packets on how to travel to their destination. It provides the necessary information for the router to decide where to forward incoming packets based on their destination IP address.
 
+</blockquote>
 - **Routing tables look something like this:**
     
     <img src="images\image%2035.png" alt="image.png"></img>
@@ -733,20 +754,26 @@ use `route print` to display the routing table of your device
 
 We have talked about private IP addresses, and how they are assigned by the router. However, when a device wants to communicate with the internet, it needs to use a public IP addresses.
 
-- **Public IP address**
-    
-    An address that is assigned to a device directly connected to the internet. It is globally unique and can be accessed from anywhere on the internet.
-    
-    - Public IPs are used by routers and servers to communicate with other devices on the internet. Websites and online services use public IPs to send data to and receive data from users.
-    
-    <aside>
-    📎
-    
-    Find your router’s public IP address with the following URL: [https://www.whatismyip.com/](https://www.whatismyip.com/)
-    
-    </aside>
-    
 
+<details>
+<summary><b>💡 Public IP address</b></summary>
+
+<blockquote>
+
+An address that is assigned to a device directly connected to the internet. It is globally unique and can be accessed from anywhere on the internet.
+
+</blockquote>
+- Public IPs are used by routers and servers to communicate with other devices on the internet. Websites and online services use public IPs to send data to and receive data from users.
+
+<aside>
+📎
+
+Find your router’s public IP address with the following URL: [https://www.whatismyip.com/](https://www.whatismyip.com/)
+
+</aside>
+
+
+</details>
 
 <details>
 <summary><b>📜 Connecting with the internet</b></summary>
@@ -755,42 +782,32 @@ We have talked about private IP addresses, and how they are assigned by the rout
 2. **Your Router**: Has a public IP (e.g., `203.0.113.5`) assigned by your ISP.
 3. your router uses **Network Address Translation (NAT)** to translate the private IP to a public IP for external communication. The internet can simply send data packets to this public IP address, and they shall be directed to their respective devices.
 4. **Internet**: Once the public IP is assigned, your device can communicate with websites and other internet services. Data sent from the internet to devices on a local network, and vice versa are facilitated by these routers, essentially acting as an intermediary.
+<blockquote>
 
-<aside>
-💻
+**💻 On CMD:**
 
-CMD: Use `ping` to test connectivity with another device on the internet
-
-- `ping 8.8.8.8`
-- `ping google.com`
-- `ping nonexistent.non`
-</aside>
-
-<aside>
-💻
-
-CMD: Use `nslookup` to resolve domain names into IP addresses or vice versa
-
-- `nslookup google.com`
-</aside>
-
-<aside>
-💻
-
-CMD: use `tracert` to view that path packets take to reach their destination
-
-- `tracert google.com`
-</aside>
+- **Use `ping` to test connectivity with another device on the internet**
+    - `ping 8.8.8.8`
+    - `ping google.com`
+    - `ping nonexistent.non`
+- **Use `nslookup` to resolve domain names into IP addresses or vice versa**
+    - `nslookup google.com`
+- **CMD: use `tracert` to view that path packets take to reach their destination**
+    - `tracert google.com`
+</blockquote>
 
 
 </details>
 
-> ↩️ **Summary**
-> 
-> 1. Routers connect multiple networks together
-> 2. Routers assign private IP addresses to devices on a local network, and public addresses to IP’s that wish to communicate with the internet
-> 3. Devices can obtain the MAC address of other devices on separate networks using static IP addresses, Domain Name System resolution and communicating with the DHCP (which is typically in the router)
-> 4. Routing tables are found on many networked devices, which help data packets to know how to travel to their end-destination by specifying a general route
+<details>
+<summary><b>🔄 Summary</b></summary>
+
+1. Routers connect multiple networks together
+2. Routers assign private IP addresses to devices on a local network, and public addresses to IP’s that wish to communicate with the internet
+3. Devices can obtain the MAC address of other devices on separate networks using static IP addresses, Domain Name System resolution and communicating with the DHCP (which is typically in the router)
+4. Routing tables are found on many networked devices, which help data packets to know how to travel to their end-destination by specifying a general route
+
+</details>
 
 End of guide :)
 
